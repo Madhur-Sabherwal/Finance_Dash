@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "findash"
+version = "2.0.0"
+description = "Private finance dashboard and planner for Australian households and small businesses: reads your PDFs, verifies tax rules online, plans your next 10 steps."
+readme = "README.md"
+license = { text = "Proprietary - All rights reserved" }
+requires-python = ">=3.9"
+keywords = ["finance", "bank statements", "pdf", "australia", "tax", "gst", "bas", "budget", "dashboard", "llm"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: Other/Proprietary License",
+  "Topic :: Office/Business :: Financial",
+  "Intended Audience :: End Users/Desktop",
+]
+dependencies = [
+  "pymupdf>=1.24",
+  "pandas>=2.0",
+  "plotly>=5.18",
+  "python-dateutil>=2.8",
+  "pdfplumber>=0.10",
+  "cryptography>=42",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "reportlab>=4"]
+demo = ["reportlab>=4"]
+
+[project.scripts]
+findash = "findash.cli:main"
+findash-household = "findash.cli:main_household"
+findash-business = "findash.cli:main_business"
+
+[tool.setuptools]
+packages = ["findash"]
+
+[tool.setuptools.package-data]
+findash = ["data/*.csv", "data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,33 @@
+# ---- OWNER SECRETS: never commit ----
+owner/
+*.key
+.env
+
+# ---- Your data: never commit ----
+*.pdf
+dashboard_output/
+business_dashboard/
+findash_output/
+demo_data/
+knowledge/
+state.db
+*.db
+transactions.csv
+household.json
+business.json
+tax_profile.json
+merchant_overrides.csv
+merchant_review.csv
+config.json
+secrets.json
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.coverage
